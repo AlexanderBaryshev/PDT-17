@@ -10,17 +10,16 @@ import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterClass;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 
 public class TestBase {
 
-	private static WebDriver driver;
-	private static String baseUrl;
-	private static boolean acceptNextAlert = true;
-	private static StringBuffer verificationErrors = new StringBuffer();
+	private WebDriver driver;
+	private String baseUrl;
+	private boolean acceptNextAlert = true;
+	private StringBuffer verificationErrors = new StringBuffer();
 
 	@BeforeTest
 	public void setUp() throws Exception {
@@ -100,4 +99,46 @@ public class TestBase {
 	    }
 	  }
 
+
+	protected void returnToHomePage() {
+	    driver.findElement(By.linkText("home page")).click();
+	}
+
+	protected void submitAddressBookCreation() {
+	    driver.findElement(By.name("submit")).click();
+	}
+
+	protected void fillAddressBook(AddressBookData AddressBook) {
+	    driver.findElement(By.name("firstname")).clear();
+	    driver.findElement(By.name("firstname")).sendKeys(AddressBook.first_name);
+	    driver.findElement(By.name("lastname")).clear();
+	    driver.findElement(By.name("lastname")).sendKeys(AddressBook.last_name);
+	    driver.findElement(By.name("address")).clear();
+	    driver.findElement(By.name("address")).sendKeys(AddressBook.address);
+	    driver.findElement(By.name("home")).clear();
+	    driver.findElement(By.name("home")).sendKeys(AddressBook.home);
+	    driver.findElement(By.name("mobile")).clear();
+	    driver.findElement(By.name("mobile")).sendKeys(AddressBook.mobile);
+	    driver.findElement(By.name("work")).clear();
+	    driver.findElement(By.name("work")).sendKeys(AddressBook.work);
+	    driver.findElement(By.name("email")).clear();
+	    driver.findElement(By.name("email")).sendKeys(AddressBook.email);
+	    driver.findElement(By.name("email2")).clear();
+	    driver.findElement(By.name("email2")).sendKeys(AddressBook.email_2);
+	    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(AddressBook.bday);
+	    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(AddressBook.bmonth);
+	    driver.findElement(By.name("byear")).clear();
+	    driver.findElement(By.name("byear")).sendKeys(AddressBook.byear);
+	    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(AddressBook.new_group);
+	    driver.findElement(By.name("address2")).clear();
+	    driver.findElement(By.name("address2")).sendKeys(AddressBook.address2);
+	    driver.findElement(By.name("phone2")).clear();
+	    driver.findElement(By.name("phone2")).sendKeys(AddressBook.phone2);
+	}
+
+	protected void openNewAddressBook() {
+	    driver.findElement(By.linkText("add new")).click();
+	}
+
+	
 }

@@ -38,6 +38,4 @@ public class AddressBookData {
 		this.address2 = address2;
 		this.phone2 = phone2;
 	}
-	
-	
 }

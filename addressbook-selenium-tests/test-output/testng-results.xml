@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="18618" started-at="2014-03-10T09:16:17Z" finished-at="2014-03-10T09:16:35Z">
+  <suite name="Default suite" duration-ms="78467" started-at="2014-03-10T18:53:07Z" finished-at="2014-03-10T18:54:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="18618" started-at="2014-03-10T09:16:17Z" finished-at="2014-03-10T09:16:35Z">
+    <test name="Default test" duration-ms="78467" started-at="2014-03-10T18:53:07Z" finished-at="2014-03-10T18:54:25Z">
       <class name="com.example.tests.AddressCreationTests">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.AddressCreationTests@12a518fc]" name="setUp" is-config="true" duration-ms="13434" started-at="2014-03-10T13:16:17Z" finished-at="2014-03-10T13:16:30Z">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.example.tests.AddressCreationTests@369ef286]" name="setUp" is-config="true" duration-ms="34011" started-at="2014-03-10T22:53:07Z" finished-at="2014-03-10T22:53:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="testEmptyAddressBookCreation()[pri:0, instance:com.example.tests.AddressCreationTests@12a518fc]" name="testEmptyAddressBookCreation" duration-ms="2215" started-at="2014-03-10T13:16:30Z" finished-at="2014-03-10T13:16:32Z">
+        <test-method status="PASS" signature="testEmptyAddressBookCreation()[pri:0, instance:com.example.tests.AddressCreationTests@369ef286]" name="testEmptyAddressBookCreation" duration-ms="22239" started-at="2014-03-10T22:53:41Z" finished-at="2014-03-10T22:54:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testEmptyAddressBookCreation -->
-        <test-method status="PASS" signature="testNonEmptyAddressBookCreation()[pri:0, instance:com.example.tests.AddressCreationTests@12a518fc]" name="testNonEmptyAddressBookCreation" duration-ms="2797" started-at="2014-03-10T13:16:32Z" finished-at="2014-03-10T13:16:35Z">
+        <test-method status="PASS" signature="testNonEmptyAddressBookCreation()[pri:0, instance:com.example.tests.AddressCreationTests@369ef286]" name="testNonEmptyAddressBookCreation" duration-ms="22028" started-at="2014-03-10T22:54:03Z" finished-at="2014-03-10T22:54:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testNonEmptyAddressBookCreation -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.AddressCreationTests@12a518fc]" name="tearDown" is-config="true" duration-ms="160" started-at="2014-03-10T13:16:35Z" finished-at="2014-03-10T13:16:35Z">
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.example.tests.AddressCreationTests@369ef286]" name="tearDown" is-config="true" duration-ms="174" started-at="2014-03-10T22:54:25Z" finished-at="2014-03-10T22:54:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
