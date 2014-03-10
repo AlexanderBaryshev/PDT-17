@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="AddressCreationTests (1)" project="addressbook-selenium-tests" tests="2" started="2" failures="0" errors="0" ignored="0">
+  <testsuite name="com.example.tests.AddressCreationTests" time="24.336">
+    <testcase name="testEmptyAddressBookCreation" classname="com.example.tests.AddressCreationTests" time="16.999"/>
+    <testcase name="testNonEmptyAddressBookCreation" classname="com.example.tests.AddressCreationTests" time="7.337"/>
+  </testsuite>
+</testrun>

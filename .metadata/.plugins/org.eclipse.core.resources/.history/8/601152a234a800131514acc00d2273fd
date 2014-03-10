@@ -1,0 +1,143 @@
+package com.example.tests;
+
+import java.util.regex.Pattern;
+import java.util.concurrent.TimeUnit;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
+import org.openqa.selenium.*;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+
+
+public class AddressCreationTests {
+  private WebDriver driver;
+  private String baseUrl;
+  private boolean acceptNextAlert = true;
+  private StringBuffer verificationErrors = new StringBuffer();
+
+  @BeforeClass
+  public void setUp() throws Exception {
+    driver = new FirefoxDriver();
+    baseUrl = "http://localhost/";
+    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+  }
+
+  @Test
+  public void testNonEmptyAddressBookCreation() throws Exception {
+	openMainPage();
+    GoToNewAddressBook();
+    AddressBookData addressBook = new AddressBookData();
+    addressBook.first_name = "first_name";
+    addressBook.last_name = "last_name";
+    addressBook.address = "address";
+    addressBook.home = "home";
+    addressBook.mobile = "mobile";
+    addressBook.work = "work";
+    addressBook.email = "email";
+    addressBook.email_2 = "email_2";
+    addressBook.bday = "1";
+    addressBook.bmonth = "January";
+    addressBook.byear = "1990";
+    addressBook.new_group = "Group 1";
+    addressBook.address2 = "address2";
+    addressBook.phone2 = "phone2";
+	fillAddressBook(addressBook);
+    submitAddressBookCreation();
+    returnToHomePage();
+    }
+
+  @Test
+  public void testEmptyAddressBookCreation() throws Exception {
+	openMainPage();
+    GoToNewAddressBook();
+    fillAddressBook(new AddressBookData("", "", "", "", "", "", "", "", "-", "-", "", "", "", ""));
+    submitAddressBookCreation();
+    returnToHomePage();
+    }
+  
+private void returnToHomePage() {
+    driver.findElement(By.linkText("home page")).click();
+}
+
+private void submitAddressBookCreation() {
+    driver.findElement(By.name("submit")).click();
+}
+
+private void fillAddressBook(AddressBookData AddressBook) {
+    driver.findElement(By.name("firstname")).clear();
+    driver.findElement(By.name("firstname")).sendKeys(AddressBook.first_name);
+    driver.findElement(By.name("lastname")).clear();
+    driver.findElement(By.name("lastname")).sendKeys(AddressBook.last_name);
+    driver.findElement(By.name("address")).clear();
+    driver.findElement(By.name("address")).sendKeys(AddressBook.address);
+    driver.findElement(By.name("home")).clear();
+    driver.findElement(By.name("home")).sendKeys(AddressBook.home);
+    driver.findElement(By.name("mobile")).clear();
+    driver.findElement(By.name("mobile")).sendKeys(AddressBook.mobile);
+    driver.findElement(By.name("work")).clear();
+    driver.findElement(By.name("work")).sendKeys(AddressBook.work);
+    driver.findElement(By.name("email")).clear();
+    driver.findElement(By.name("email")).sendKeys(AddressBook.email);
+    driver.findElement(By.name("email2")).clear();
+    driver.findElement(By.name("email2")).sendKeys(AddressBook.email_2);
+    new Select(driver.findElement(By.name("bday"))).selectByVisibleText(AddressBook.bday);
+    new Select(driver.findElement(By.name("bmonth"))).selectByVisibleText(AddressBook.bmonth);
+    driver.findElement(By.name("byear")).clear();
+    driver.findElement(By.name("byear")).sendKeys(AddressBook.byear);
+    new Select(driver.findElement(By.name("new_group"))).selectByVisibleText(AddressBook.new_group);
+    driver.findElement(By.name("address2")).clear();
+    driver.findElement(By.name("address2")).sendKeys(AddressBook.address2);
+    driver.findElement(By.name("phone2")).clear();
+    driver.findElement(By.name("phone2")).sendKeys(AddressBook.phone2);
+}
+
+private void GoToNewAddressBook() {
+    driver.findElement(By.linkText("add new")).click();
+}
+
+  @AfterClass
+  public void tearDown() throws Exception {
+    driver.quit();
+    String verificationErrorString = verificationErrors.toString();
+    if (!"".equals(verificationErrorString)) {
+      fail(verificationErrorString);
+    }
+  }
+
+  private boolean isElementPresent(By by) {
+    try {
+      driver.findElement(by);
+      return true;
+    } catch (NoSuchElementException e) {
+      return false;
+    }
+  }
+
+  private boolean isAlertPresent() {
+    try {
+      driver.switchTo().alert();
+      return true;
+    } catch (NoAlertPresentException e) {
+      return false;
+    }
+  }
+
+  private String closeAlertAndGetItsText() {
+    try {
+      Alert alert = driver.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
+    }
+  }
+}
